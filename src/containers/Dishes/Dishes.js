@@ -3,7 +3,8 @@ import {connect} from 'react-redux';
 import {fetchDishes} from '../../actions/dishes';
 import Dish from '../../components/Dish/Dish';
 import Category from '../../components/Category/Category';
-import {Link} from 'react-router-dom';
+import './Dishes.css';
+import BackButton from '../../components/BackButton/BackButton';
 
 class Dishes extends Component {
   componentDidMount() {
@@ -12,8 +13,8 @@ class Dishes extends Component {
 
   render() {
     return (
-      <div>
-        <Link to='/'>Back</Link>
+      <div className='Dishes'>
+        <BackButton/>
         <Category {...this.props.category}/>
         {this.props.items.map(dish => <Dish {...dish} key={dish.id}/>)}
       </div>

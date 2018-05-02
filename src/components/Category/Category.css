@@ -1,0 +1,32 @@
+.Category {
+    display: flex;
+    justify-content: space-between;
+    height: 150px;
+    box-shadow: #999 0 5px 6px 1px;
+    margin-bottom: 40px;
+    background-color: #ffe4c9;
+    width: 90%;
+    color: #000;
+    text-decoration: none!important;
+}
+
+.Category .category-container {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.Category .category-container .title {
+    font-weight: 700;
+    font-size: 35px;
+    margin: 10px 0 20px;
+}
+
+.Category .img-container {
+    width: 267px;
+    margin-right: 8%;
+}
+
+.Category .img {
+    height: 100%;
+}

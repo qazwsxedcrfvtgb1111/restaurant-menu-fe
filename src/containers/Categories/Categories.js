@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Category from '../../components/Category/Category';
 import {fetchCategories} from '../../actions/categories';
-import {Link} from 'react-router-dom';
+import './Categories.css';
 
 class Categories extends Component {
   componentDidMount() {
@@ -11,11 +11,9 @@ class Categories extends Component {
 
   render() {
     return (
-      <div>
+      <div className='Categories'>
         {this.props.categories.items.map(category => (
-          <Link to={`category/${category.id}`} key={category.id}>
-            <Category {...category}/>
-          </Link>
+          <Category {...category} key={category.id}/>
         ))}
       </div>
     );

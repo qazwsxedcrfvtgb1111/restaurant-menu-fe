@@ -1,13 +1,24 @@
 import React, {Component} from 'react';
+import './Dish.css';
 
 export default class Dish extends Component {
   render() {
     return (
-      <div>
-        <img src={this.props.img} alt='Dish' width={'100px'} height={'100px'}/>
-        {this.props.title}
-        {this.props.description}
-        {this.props.price}
+      <div className='Dish'>
+        <div className='img-container'>
+          <img className='img' src={this.props.img} alt='Dish'/>
+        </div>
+        <div className='text-container'>
+          <div className='title'>
+            {this.props.title}
+          </div>
+          <div className='description'>
+            {this.props.description}
+          </div>
+        </div>
+        <div className='price'>
+          {this.props.price}
+        </div>
       </div>
     );
   }

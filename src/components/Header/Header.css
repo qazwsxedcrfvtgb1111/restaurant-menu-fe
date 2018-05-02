@@ -1,0 +1,11 @@
+.Header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    box-shadow: #999 0 5px 6px 1px;
+    margin-bottom: 35px;
+    background-color: #ffe4c9;
+    font-weight: 700;
+    font-size: 40px;
+}

@@ -9,10 +9,10 @@ import Dishes from '../Dishes/Dishes';
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div className='App'>
         <Header/>
         <main>
-          <Route exact path='/' component={Categories} />
+          <Route exact path='/' component={Categories}/>
           <Route exact path='/category/:id' component={Dishes}/>
         </main>
         <Footer/>
