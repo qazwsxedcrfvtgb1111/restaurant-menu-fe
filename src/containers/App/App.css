@@ -6,5 +6,9 @@
 
 html {
   font-family: 'Montserrat', sans-serif;
+  background-color: #ffe4c9;
+}
+
+#root {
   background-color: #e4efeb;
 }
