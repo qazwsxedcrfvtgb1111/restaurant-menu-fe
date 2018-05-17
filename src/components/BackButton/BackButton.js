@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './BackButton.css';
+import './BackButton.scss';
 import {Link} from 'react-router-dom';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import faArrowLeft from '@fortawesome/fontawesome-free-solid/faArrowLeft';

@@ -2,11 +2,10 @@
     display: flex;
     justify-content: flex-start;
     height: 150px;
-    box-shadow: #999 0 5px 6px 1px;
     margin-bottom: 20px;
-    background-color: #ffe4c9;
+    background-color: #538a57;
     width: 80%;
-    color: #000;
+    color: #fff;
     text-decoration: none!important;
 }
 

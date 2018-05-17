@@ -1,11 +1,13 @@
+@import "variables.scss";
+
 .Footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 80px;
-    box-shadow: #999 0 5px 6px 1px;
     margin-top: 20px;
-    background-color: #ffe4c9;
+    background-color: $header-color;
+    color: #fff;
 }
 
 .Footer .title {

@@ -1,0 +1,16 @@
+@import "variables";
+html {
+  font-family: 'Montserrat', sans-serif;
+  background-color: $header-color;
+}
+
+#root {
+  background-color: $bg-color;
+}
+.shadowed {
+  box-shadow: #999 0 5px 20px 1px;
+}
+
+.img {
+  width: 100%;
+}

@@ -4,7 +4,7 @@ import './Dish.css';
 export default class Dish extends Component {
   render() {
     return (
-      <div className='Dish'>
+      <div className='Dish shadowed'>
         <div className='img-container'>
           <img className='img' src={this.props.img} alt='Dish'/>
         </div>
