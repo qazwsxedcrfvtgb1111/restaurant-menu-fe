@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './Dish.css';
+import './Dish.scss';
 
 export default class Dish extends Component {
   render() {

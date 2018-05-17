@@ -1,0 +1,30 @@
+.Dish {
+  display: flex;
+  justify-content: flex-start;
+  height: 150px;
+  margin-bottom: 20px;
+  background-color: #53618a;
+  width: 80%;
+  color: #fff;
+  text-decoration: none !important;
+
+  .title {
+    font-weight: 700;
+    font-size: 30px;
+    margin: 10px 0 20px;
+  }
+
+  .img-container {
+    width: 267px;
+    margin-right: 8%;
+  }
+
+  .img {
+    height: 100%;
+  }
+
+  .price {
+    margin: 10px 20px 0 auto;
+    font-size: 25px;
+  }
+}

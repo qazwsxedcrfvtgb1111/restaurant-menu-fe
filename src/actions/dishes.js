@@ -1,4 +1,4 @@
-import {getDishes} from '../services/mock/dishes';
+import {getDishes} from '../services/dishes';
 import {fetchCategories} from './categories';
 
 export const FETCH_DISHES = 'FETCH_DISHES';
@@ -19,5 +19,6 @@ export function fetchDishes(categoryId) {
 function getDishesActions(dispatch, categoryId) {
   dispatch({type: FETCH_DISHES});
   getDishes(categoryId)
-    .then(dishes => dispatch({type: RECEIVE_DISHES, dishes, categoryId}));
+    .then(dishes => dispatch({type: RECEIVE_DISHES, dishes, categoryId}))
+    .catch(error => dispatch({type: RECEIVE_DISHES, dishes: [], categoryId}));
 }
