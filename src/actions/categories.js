@@ -45,7 +45,7 @@ export function deleteCategory(item) {
         if (item.id) {
             return new CategoryService(dispatch, getState()).delete(item.id)
                 .then(() => dispatch({type: DELETED_CATEGORY, item}))
-                .catch(() => dispatch({type: DELETE_CATEGORY_FAILED}));
+                .catch(() => dispatch({type: DELETE_CATEGORY_FAILED, item}));
         }
     }
 }
