@@ -1,0 +1,19 @@
+@import 'variables.scss';
+
+.input-container {
+    margin-bottom: 30px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.input {
+    color: #000;
+    background-color: transparent;
+    border: #528a57 solid 2px;
+    padding: 8px;
+
+    &::placeholder {
+        color: #5a5a5a;
+    }
+}

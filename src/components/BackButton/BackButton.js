@@ -5,9 +5,9 @@ import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import faArrowLeft from '@fortawesome/fontawesome-free-solid/faArrowLeft';
 
 export default class BackButton extends Component {
-  render() {
-    return (
-      <Link to='/' className='BackButton'><FontAwesomeIcon icon={faArrowLeft}/> Back</Link>
-    );
-  }
+    render() {
+        return (
+            <Link to='/' className='BackButton'><FontAwesomeIcon icon={faArrowLeft}/> Back</Link>
+        );
+    }
 }

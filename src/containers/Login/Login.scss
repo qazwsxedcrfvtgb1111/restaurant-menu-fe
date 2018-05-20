@@ -1,0 +1,18 @@
+.Login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .input-container {
+        width: 100%;
+        display: flex;
+
+        .input-label {
+            width: 40%;
+            display: flex;
+            justify-content: flex-end;
+            margin-right: 50px;
+        }
+    }
+}

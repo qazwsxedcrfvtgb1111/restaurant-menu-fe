@@ -1,12 +1,14 @@
 import React, {Component} from 'react';
 import './Header.scss';
+import Button from '../Button/Button';
 
 export default class Header extends Component {
-  render() {
-    return (
-      <nav className='Header shadowed'>
-        Restaurant
-      </nav>
-    );
-  }
+    render() {
+        return (
+            <nav className='Header shadowed'>
+                <span className='title-container'>Restaurant</span>
+                {this.props.loggedIn && <Button onClick={this.props.logout}>Log out</Button>}
+            </nav>
+        );
+    }
 }

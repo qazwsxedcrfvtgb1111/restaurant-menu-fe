@@ -5,24 +5,24 @@ import {fetchCategories} from '../../actions/categories';
 import './Categories.css';
 
 class Categories extends Component {
-  componentDidMount() {
-    this.props.dispatch(fetchCategories());
-  }
+    componentDidMount() {
+        this.props.dispatch(fetchCategories());
+    }
 
-  render() {
-    return (
-      <div className='Categories'>
-        {this.props.categories.items.map(category => (
-          <Category {...category} key={category.id}/>
-        ))}
-      </div>
-    );
-  }
+    render() {
+        return (
+            <div className='Categories'>
+                {this.props.categories.items.map(category => (
+                    <Category {...category} key={category.id}/>
+                ))}
+            </div>
+        );
+    }
 }
 
 function mapStateToProps(state) {
-  const {categories} = state;
-  return {categories};
+    const {categories} = state;
+    return {categories};
 }
 
 export default connect(mapStateToProps)(Categories);
