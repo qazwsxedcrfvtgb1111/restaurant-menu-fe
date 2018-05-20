@@ -9,7 +9,7 @@ export default class Input extends Component {
     render() {
         return (
             <div className='input-container'>
-                {this.props.label && (
+                {this.props.label && !this.props.hideLabel && (
                     <label className='input-label'>{this.props.label}</label>
                 )}
                 <input

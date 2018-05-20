@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {fetchDishes} from '../../actions/dishes';
 import Dish from '../../components/Dish/Dish';
 import Category from '../../components/Category/Category';
-import './Dishes.css';
+import './Dishes.scss';
 import BackButton from '../../components/BackButton/BackButton';
 
 class Dishes extends Component {

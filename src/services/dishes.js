@@ -1,9 +1,7 @@
-import {URL, URLSearchParams} from 'whatwg-url';
+import {formUrl} from './helpers';
 
 export function getDishes(categoryId) {
-    const url = new URL(`${process.env.REACT_APP_HOST_API}/dishes`);
-    url.search = new URLSearchParams({categoryId});
-    return fetch(url)
+    return fetch(formUrl('dishes', {categoryId}))
         .then(res => {
             if (res.ok) {
                 return res.json();

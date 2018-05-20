@@ -1,0 +1,12 @@
+@import "variables.scss";
+
+.ControlIcons {
+    margin-left: 5px;
+    display: flex;
+    flex-direction: column;
+
+    svg {
+        margin-bottom: 3px;
+        cursor: pointer;
+    }
+}

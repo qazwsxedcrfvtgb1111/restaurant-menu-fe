@@ -1,11 +1,13 @@
+@import "variables.scss";
+
 .Category {
     display: flex;
     justify-content: space-between;
     height: 150px;
     margin-bottom: 40px;
     background-color: #538a57;
-    width: 90%;
-    color: #fff;
+    width: 100%;
+    color: #fff !important;
     text-decoration: none !important;
 
     .category-container {
@@ -14,9 +16,17 @@
         width: 100%;
 
         .title {
+            margin: 10px 0 20px;
+        }
+
+        .title, .title .input {
             font-weight: 700;
             font-size: 35px;
-            margin: 10px 0 20px;
+            color: #fff;
+        }
+        .description, .description .input {
+            font-size: 18px;
+            color: #fff;
         }
     }
 
@@ -47,5 +57,8 @@
         }
 
     }
-}
 
+    .input-container {
+        border: $bg-color 2px solid;
+    }
+}
