@@ -1,3 +1,5 @@
+@import "variables.scss";
+
 .Dishes {
     display: flex;
     justify-content: center;
@@ -6,6 +8,24 @@
 
     .Category {
         width: 90%;
+    }
+
+    .control-container {
+        display: flex;
+        justify-content: space-between;
+        width: 80%;
+    }
+
+    .AddElement {
+        background: $dish-bg-color;
+        width: 50%;
+        color: #fff;
+    }
+
+    @media (max-width: 768px) {
+        .control-container {
+            flex-direction: column;
+        }
     }
 }
 

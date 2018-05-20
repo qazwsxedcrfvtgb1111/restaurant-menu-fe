@@ -7,7 +7,6 @@ import AppLoader from '../AppLoader/AppLoader';
 export default class Category extends Component {
     render() {
         if (this.props.editing) {
-            console.log(this.props);
             return (
                 <div className='Category shadowed'>
                     <AppLoader loading={this.props.fetching}/>

@@ -13,6 +13,7 @@ import {
     SET_CATEGORY_VALUE,
     UPDATED_CATEGORY
 } from '../actions/categories';
+import {removeByEquality, removeById, replaceByEquality, replaceById} from './helpers';
 
 export function categories(state = {
     fetching: false,
@@ -36,22 +37,19 @@ export function categories(state = {
         case EDIT_CATEGORY:
             return {
                 ...state,
-                items: state.items.map(item => item === action.item ? {
-                    ...item,
-                    editing: true
-                } : item),
+                items: replaceByEquality(state.items, action.item, {editing: true})
             };
         case CANCEL_EDIT_CATEGORY:
             if (action.item.id) {
                 const oldItem = state.oldItems.find(item => item.id === action.item.id);
                 return {
                     ...state,
-                    items: state.items.map(item => item.id === action.item.id ? {...oldItem, editing: false} : item),
+                    items: replaceById(state.items, action.item, {...oldItem, editing: false})
                 }
             }
             return {
                 ...state,
-                items: state.items.filter(item => item !== action.item)
+                items: removeByEquality(state.items, action.item)
             };
         case ADD_CATEGORY:
             return {
@@ -66,18 +64,17 @@ export function categories(state = {
         case SAVING_CATEGORY:
             return {
                 ...state,
-                items: state.items.map(item => item === action.item ? {
-                    ...item,
+                items: replaceByEquality(state.items, action.item, {
                     editing: false,
                     saveId: action.saveId,
                     fetching: true,
-                } : item),
+                })
             };
         case UPDATED_CATEGORY:
             return {
                 ...state,
-                oldItems: state.oldItems.map(item => item.id === action.item.id ? {...action.item} : item),
-                items: state.items.map(item => item.id === action.item.id ? {...item, fetching: false} : item)
+                oldItems: replaceById(state.oldItems, action.item, {...action.item}),
+                items: replaceById(state.items, action.item, {fetching: false})
             };
         case CREATED_CATEGORY:
             let createdItem = {};
@@ -97,7 +94,7 @@ export function categories(state = {
         case DELETE_CATEGORY_FAILED:
             return {
                 ...state,
-                items: state.items.map(item => item.id === action.item.id ? {...item, fetching: false} : item),
+                items: replaceById(state.items, action.item, {fetching: false}),
                 errors: action.errors
             };
         case SAVE_CATEGORY_FAILED:
@@ -107,23 +104,24 @@ export function categories(state = {
                     ...item,
                     errors: action.errors,
                     editing: true,
-                    saveId: null
+                    saveId: null,
+                    fetching: false,
                 } : item)
             };
         case DELETING_CATEGORY:
             if (!action.item.id) {
-                return {...state, items: state.items.filter(item => item !== action.item)};
+                return {...state, items: removeByEquality(state.items, action.item)};
             }
             return {
                 ...state,
-                items: state.items.map(item => item.id === action.item.id ? {...item, fetching: true} : item)
+                items: replaceById(state.items, action.item, {fetching: true})
             };
         case DELETED_CATEGORY:
-            return {...state, items: state.items.filter(item => item.id !== action.item.id)};
+            return {...state, items: removeById(state.items, action.item)};
         case SET_CATEGORY_VALUE:
             return {
                 ...state,
-                items: state.items.map(item => item === action.item ? {...item, [action.field]: action.value} : item)
+                items: replaceByEquality(state.items, action.item, {[action.field]: action.value})
             };
         default:
             return state;

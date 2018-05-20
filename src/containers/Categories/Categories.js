@@ -28,7 +28,7 @@ class Categories extends Component {
                                   onEdit={(prop, value) => this.props.dispatch(setCategoryValue(prop, value, category))}
                         />
                         {this.props.isAuthorized &&
-                        <ControlIcons editing={category.editing}
+                        <ControlIcons editing={category.editing} disabled={category.fetching}
                                       onEditClick={() => this.props.dispatch(editCategory(category))}
                                       onSaveClick={() => this.props.dispatch(saveCategory(category))}
                                       onCancelClick={() => this.props.dispatch(cancelEditCategory(category))}

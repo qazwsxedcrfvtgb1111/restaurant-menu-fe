@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {fetchDishes} from '../../actions/dishes';
+import {addDish, cancelEditDish, deleteDish, editDish, fetchDishes, saveDish, setDishValue} from '../../actions/dishes';
 import Dish from '../../components/Dish/Dish';
 import Category from '../../components/Category/Category';
 import './Dishes.scss';
 import BackButton from '../../components/BackButton/BackButton';
+import ControlIcons from '../../components/ControlIcons/ControlIcons';
+import AddElement from '../../components/AddElement/AddElement';
 
 class Dishes extends Component {
     componentDidMount() {
@@ -17,10 +19,24 @@ class Dishes extends Component {
                 <BackButton/>
                 <Category {...this.props.category} />
                 {this.props.items.length || this.props.fetching ? (
-                    this.props.items.map(dish => <Dish {...dish} key={dish.id}/>)
+
+
+                    this.props.items.map((dish, index) =>
+                        <div className='control-container' key={index}>
+                            <Dish {...dish}
+                                  onEdit={(prop, value) => this.props.dispatch(setDishValue(prop, value, dish))}
+                            />
+                            {this.props.isAuthorized &&
+                            <ControlIcons editing={dish.editing} disabled={dish.fetching}
+                                          onEditClick={() => this.props.dispatch(editDish(dish))}
+                                          onSaveClick={() => this.props.dispatch(saveDish(dish))}
+                                          onCancelClick={() => this.props.dispatch(cancelEditDish(dish))}
+                                          onDeleteClick={() => this.props.dispatch(deleteDish(dish))}/>}
+                        </div>)
                 ) : (
                     <div className='no-items'>No dishes in this category</div>
                 )}
+                <AddElement onAdd={() => this.props.dispatch(addDish())}/>
             </div>
         );
     }
@@ -34,7 +50,8 @@ function mapStateToProps(state, ownProps) {
             category => category.id === categoryId
         ),
         fetching: dishes.fetching || state.categories.fetching,
-        items: dishes.items[categoryId] || []
+        items: dishes.items[categoryId] || [],
+        isAuthorized: !!state.auth.token,
     };
 }
 

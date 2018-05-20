@@ -1,17 +1,47 @@
+@import "variables.scss";
+
 .Dish {
+    position: relative;
     display: flex;
     justify-content: flex-start;
     height: 150px;
     margin-bottom: 20px;
-    background-color: #53618a;
-    width: 80%;
+    background-color: $dish-bg-color;
+    width: 100%;
     color: #fff;
     text-decoration: none !important;
 
-    .title {
-        font-weight: 700;
-        font-size: 30px;
-        margin: 10px 0 20px;
+    .text-container {
+        .title, .title .input {
+            font-weight: 700;
+            font-size: 30px;
+            margin: 10px 0 20px;
+        }
+
+        .description .input {
+            font-size: 15px;
+        }
+    }
+
+    .price {
+        margin: 10px 20px 0 auto;
+        font-size: 25px;
+        display: flex;
+        align-items: center;
+    }
+
+    .text-container, .price {
+        .input::placeholder {
+            color: #353535;
+        }
+
+        .input-container {
+            margin: 0;
+            .input {
+                color: #fff;
+                margin: 0;
+            }
+        }
     }
 
     .img-container {
@@ -23,22 +53,31 @@
         height: 100%;
     }
 
-    .price {
-        margin: 10px 20px 0 auto;
-        font-size: 25px;
-    }
-
     @media(max-width: 768px) {
         flex-direction: column;
         height: auto;
         width: auto;
+
+        .img-container {
+            margin: 0;
+            width: 100%;
+        }
 
         .text-container {
             padding: 5px;
         }
 
         .price {
-            padding-bottom: 5px;
+            margin: 0;
+            padding: 5px;
+            font-size: 15px;
+            justify-content: flex-end;
         }
+    }
+
+    .input {
+        box-sizing: border-box;
+        border: $bg-color 2px solid !important;
+        width: 100%;
     }
 }

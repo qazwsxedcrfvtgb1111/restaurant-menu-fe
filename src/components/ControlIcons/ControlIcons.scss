@@ -10,6 +10,10 @@
         cursor: pointer;
     }
 
+    &.disabled svg {
+        cursor: default;
+    }
+
     @media (max-width: 768px) {
         flex-direction: row;
         margin-bottom: 30px;
