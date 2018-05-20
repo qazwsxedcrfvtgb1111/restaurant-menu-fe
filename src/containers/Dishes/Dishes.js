@@ -36,7 +36,9 @@ class Dishes extends Component {
                 ) : (
                     <div className='no-items'>No dishes in this category</div>
                 )}
+                {this.props.isAuthorized &&
                 <AddElement onAdd={() => this.props.dispatch(addDish())}/>
+                }
             </div>
         );
     }
