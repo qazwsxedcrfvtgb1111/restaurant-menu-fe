@@ -4,16 +4,22 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-}
 
-.control-container {
-    display: flex;
-    justify-content: space-between;
-    width: 90%;
-}
+    .control-container {
+        display: flex;
+        justify-content: space-between;
+        width: 90%;
+    }
 
-.AddElement {
-    background: $border-color;
-    width: 50%;
-    color: #fff;
+    .AddElement {
+        background: $border-color;
+        width: 50%;
+        color: #fff;
+    }
+
+    @media (max-width: 768px) {
+        .control-container {
+            flex-direction: column;
+        }
+    }
 }

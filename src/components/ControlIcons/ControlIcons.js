@@ -12,11 +12,11 @@ export default class ControlIcons extends Component {
             <div className='ControlIcons'>
                 {this.props.editing ?
                     <>
-                        <FontAwesomeIcon icon={faCheck} onClick={() => this.props.onSaveClick()}/>
-                        <FontAwesomeIcon icon={faTimes} onClick={() => this.props.onCancelClick()}/>
+                        <FontAwesomeIcon icon={faCheck} onClick={() => this.props.onSaveClick()} size='2x'/>
+                        <FontAwesomeIcon icon={faTimes} onClick={() => this.props.onCancelClick()} size='2x'/>
                     </>
-                    : (<FontAwesomeIcon icon={faPencil} onClick={() => this.props.onEditClick()}/>)}
-                <FontAwesomeIcon icon={faTrash} onClick={() => this.props.onDeleteClick()}/>
+                    : (<FontAwesomeIcon icon={faPencil} onClick={() => this.props.onEditClick()} size='2x'/>)}
+                <FontAwesomeIcon icon={faTrash} onClick={() => this.props.onDeleteClick()} size='2x'/>
             </div>
 
         );

@@ -33,6 +33,7 @@
     .img-container {
         width: 267px;
         margin-right: 8%;
+        flex-shrink: 0;
     }
 
     .img {
@@ -42,7 +43,7 @@
     @media(max-width: 768px) {
         height: auto;
         width: auto;
-        margin: 5px 15px;
+        margin: 5px 15px 15px;
         .category-container {
             flex-direction: column;
             padding-bottom: 10px;
@@ -58,7 +59,9 @@
 
     }
 
-    .input-container {
-        border: $bg-color 2px solid;
+    .input {
+        box-sizing: border-box;
+        border: $bg-color 2px solid !important;
+        width: 100%;
     }
 }

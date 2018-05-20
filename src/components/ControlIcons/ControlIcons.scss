@@ -6,7 +6,17 @@
     flex-direction: column;
 
     svg {
-        margin-bottom: 3px;
+        margin-bottom: 5px;
         cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+        flex-direction: row;
+        margin-bottom: 30px;
+        margin-left: 15px;
+        svg {
+            margin-bottom: 0;
+            margin-right: 10px;
+        }
     }
 }
