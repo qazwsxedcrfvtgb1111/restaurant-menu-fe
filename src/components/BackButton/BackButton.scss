@@ -5,10 +5,13 @@
     font-size: 15px;
     margin-bottom: 20px;
     color: #000;
-    top: 50%;
-    left: 3%;
+
     background-color: $bg-color;
     padding: 10px;
     border: #528a57 solid 2px;
-    position: fixed;
+    @media (min-width: 769px) {
+        position: fixed;
+        top: 50%;
+        left: 3%;
+    }
 }

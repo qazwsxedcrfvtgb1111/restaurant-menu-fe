@@ -24,3 +24,10 @@
 .Footer .info span {
     margin-left: 30px;
 }
+
+@media(max-width: 768px) {
+    .Footer {
+        flex-direction: column;
+        padding-bottom: 20px;
+    }
+}

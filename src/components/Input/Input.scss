@@ -5,15 +5,22 @@
     font-size: 20px;
     display: flex;
     align-items: center;
-}
 
-.input {
-    color: #000;
-    background-color: transparent;
-    border: #528a57 solid 2px;
-    padding: 8px;
+    @media (max-width: 768px) {
+        flex-direction: column;
+        .input-label {
+            margin-bottom: 15px;
+        }
+    }
 
-    &::placeholder {
-        color: #5a5a5a;
+    .input {
+        color: #000;
+        background-color: transparent;
+        border: #528a57 solid 2px;
+        padding: 8px;
+
+        &::placeholder {
+            color: #5a5a5a;
+        }
     }
 }

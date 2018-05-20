@@ -16,7 +16,7 @@ class Dishes extends Component {
             <div className='Dishes'>
                 <BackButton/>
                 <Category {...this.props.category} />
-                {this.props.items.length || this.fetching ? (
+                {this.props.items.length || this.props.fetching ? (
                     this.props.items.map(dish => <Dish {...dish} key={dish.id}/>)
                 ) : (
                     <div className='no-items'>No dishes in this category</div>
@@ -33,7 +33,7 @@ function mapStateToProps(state, ownProps) {
         category: state.categories.items.find(
             category => category.id === categoryId
         ),
-        fetching: dishes.fetching,
+        fetching: dishes.fetching || state.categories.fetching,
         items: dishes.items[categoryId] || []
     };
 }

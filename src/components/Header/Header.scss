@@ -19,6 +19,19 @@
         margin-right: 20px;
     }
 
+    @media (max-width: 768px) {
+        flex-direction: column;
+        padding: 10px 0;
+
+        .Button {
+            margin: 10px 0;
+        }
+
+        .title-container {
+            flex-shrink: 0;
+        }
+    }
+
     .title-container {
         width: 100%;
         display: flex;

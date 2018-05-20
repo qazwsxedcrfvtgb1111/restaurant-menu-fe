@@ -6,7 +6,7 @@ export default class Header extends Component {
     render() {
         return (
             <nav className='Header shadowed'>
-                <span className='title-container'>Restaurant</span>
+                <div className='title-container'>Restaurant</div>
                 {this.props.loggedIn && <Button onClick={this.props.logout}>Log out</Button>}
             </nav>
         );

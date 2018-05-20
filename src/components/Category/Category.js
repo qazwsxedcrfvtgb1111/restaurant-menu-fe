@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './Category.css';
+import './Category.scss';
 import {Link} from 'react-router-dom';
 
 export default class Category extends Component {
