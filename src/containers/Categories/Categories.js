@@ -6,13 +6,14 @@ import {
     cancelEditCategory,
     deleteCategory,
     editCategory,
-    fetchCategories,
+    fetchCategories, MANIPULATE_CATEGORY_IMAGE,
     saveCategory,
     setCategoryValue
 } from '../../actions/categories';
 import './Categories.scss';
 import ControlIcons from '../../components/ControlIcons/ControlIcons';
 import AddElement from '../../components/AddElement/AddElement';
+import {removeImage, setImage} from '../../actions/images';
 
 class Categories extends Component {
     componentDidMount() {
@@ -26,6 +27,8 @@ class Categories extends Component {
                     <div className='control-container' key={index}>
                         <Category {...category}
                                   onEdit={(prop, value) => this.props.dispatch(setCategoryValue(prop, value, category))}
+                                  removeImg={() => this.props.dispatch(removeImage(MANIPULATE_CATEGORY_IMAGE, category))}
+                                  setImg={file => this.props.dispatch(setImage(file, MANIPULATE_CATEGORY_IMAGE, category))}
                         />
                         {this.props.isAuthorized &&
                         <ControlIcons editing={category.editing} disabled={category.fetching}

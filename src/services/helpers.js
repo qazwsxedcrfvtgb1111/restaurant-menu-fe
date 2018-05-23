@@ -13,8 +13,12 @@ export function handleResponse(res, dispatch) {
     throw new Error(res.json().errors || 'Request failed');
 }
 
-export function getHeaders(state) {
-    return {Authorization: `Bearer ${state.auth.token}`, 'Content-Type': 'application/json'};
+export function getHeaders(state, custom = {}, setContentType = true) {
+    return {
+        Authorization: `Bearer ${state.auth.token}`,
+        ...(setContentType ? {'Content-Type': 'application/json'} : {}),
+        ...custom
+    };
 }
 
 export function cleanObj(keys, obj) {

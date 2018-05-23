@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import './Dish.scss';
 import Input from '../Input/Input';
 import AppLoader from '../AppLoader/AppLoader';
+import ImgUpload from '../ImageUpload/ImageUpload';
+import ApiImage from '../ApiImage/ApiImage';
 
 export default class Dish extends Component {
     render() {
@@ -10,7 +12,8 @@ export default class Dish extends Component {
                 <div className='Dish shadowed'>
                     <AppLoader loading={this.props.fetching}/>
                     <div className='img-container'>
-                        <img className='img' src={this.props.img} alt='Dish'/>
+                        <ImgUpload img={this.props.img} remove={this.props.removeImg}
+                                   fileSet={(file) => this.props.setImg(file)}/>
                     </div>
                     <div className='text-container'>
                         <div className='title'>
@@ -28,14 +31,14 @@ export default class Dish extends Component {
                                onChange={value => this.props.onEdit('price', value)}/>₴
                     </div>
                 </div>
-            )
+            );
         }
 
         return (
             <div className='Dish shadowed'>
                 <AppLoader loading={this.props.fetching}/>
                 <div className='img-container'>
-                    <img className='img' src={this.props.img} alt='Dish'/>
+                    <ApiImage src={this.props.img} alt='Dish'/>
                 </div>
                 <div className='text-container'>
                     <div className='title'>

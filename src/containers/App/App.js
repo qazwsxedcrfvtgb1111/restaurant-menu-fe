@@ -2,12 +2,12 @@ import React, {Component} from 'react';
 import './App.scss';
 import Header from '../../components/Header/Header';
 import Categories from '../Categories/Categories';
-import Footer from '../../components/Footer/Footer';
 import {Route, Switch, withRouter} from 'react-router-dom';
 import Dishes from '../Dishes/Dishes';
 import Login from '../Login/Login';
 import {connect} from 'react-redux';
 import {forgetToken} from '../../actions/auth';
+import Footer from '../../components/Footer/Footer';
 
 class App extends Component {
     render() {
@@ -21,9 +21,8 @@ class App extends Component {
                         <Route exact path='/category/:id' component={Dishes}/>
                         <Route exact path='/login' component={Login}/>
                     </Switch>
-
                 </main>
-                <Footer/>
+                {/*<Footer/>*/}
             </div>
         );
     }

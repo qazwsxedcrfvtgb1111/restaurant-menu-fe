@@ -3,6 +3,8 @@ import './Category.scss';
 import {Link} from 'react-router-dom';
 import Input from '../Input/Input';
 import AppLoader from '../AppLoader/AppLoader';
+import ImgUpload from '../ImageUpload/ImageUpload';
+import ApiImage from '../ApiImage/ApiImage';
 
 export default class Category extends Component {
     render() {
@@ -12,7 +14,8 @@ export default class Category extends Component {
                     <AppLoader loading={this.props.fetching}/>
                     <div className='category-container'>
                         <div className='img-container'>
-                            <img src={this.props.img} alt='Category' className='img'/>
+                            <ImgUpload img={this.props.img} remove={this.props.removeImg}
+                                       fileSet={(file) => this.props.setImg(file)}/>
                         </div>
                         <div className='text-container'>
                             <div className='title'>
@@ -34,7 +37,7 @@ export default class Category extends Component {
             <AppLoader loading={this.props.fetching}/>
             <div className='category-container'>
                 <div className='img-container'>
-                    <img src={this.props.img} alt='Category' className='img'/>
+                    <ApiImage src={this.props.img} alt='Category'/>
                 </div>
                 <div className='text-container'>
                     <div className='title'>{this.props.title}</div>

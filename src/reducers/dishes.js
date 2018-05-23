@@ -6,13 +6,15 @@ import {
     DELETED_DISH,
     DELETING_DISH,
     EDIT_DISH,
-    FETCH_DISHES,
+    FETCH_DISHES, MANIPULATE_DISH_IMAGE,
     RECEIVE_DISHES,
     SAVE_DISH_FAILED,
     SAVING_DISH,
     SET_DISH_VALUE,
     UPDATED_DISH
 } from '../actions/dishes';
+import {replaceByEquality} from './helpers';
+import {image} from './image';
 
 export function dishes(state = {
     items: {},
@@ -51,7 +53,7 @@ export function dishes(state = {
                             editing: false
                         } : item)
                     },
-                }
+                };
             }
             return {
                 ...state,
@@ -67,10 +69,10 @@ export function dishes(state = {
                     ...state.items, [state.categoryId]: [...state.items[state.categoryId], {
                         title: '',
                         description: '',
-                        img: 'http://cdn-img.health.com/sites/default/files/styles/large_16_9/public/styles/main/public/gettyimages-515202999.jpg?itok=MD4bUlS5',
+                        img: '',
                         price: '',
                         categoryId: state.categoryId,
-                        editing: true
+                        editing: true,
                     }]
                 }
             };
@@ -179,6 +181,19 @@ export function dishes(state = {
                             ...item,
                             [action.field]: action.field === 'price' ? +action.value : action.value
                         } : item;
+                    })
+                }
+            };
+        case MANIPULATE_DISH_IMAGE:
+            return {
+                ...state,
+                items: {
+                    ...state.items,
+                    [state.categoryId]: state.items[state.categoryId].map(item => {
+                        if(action.saveId && item.saveId === action.saveId || item === action.item) {
+                            return image(item, action);
+                        }
+                        return item;
                     })
                 }
             };

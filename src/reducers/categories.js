@@ -7,6 +7,7 @@ import {
     DELETING_CATEGORY,
     EDIT_CATEGORY,
     FETCH_CATEGORIES,
+    MANIPULATE_CATEGORY_IMAGE,
     RECEIVE_CATEGORIES,
     SAVE_CATEGORY_FAILED,
     SAVING_CATEGORY,
@@ -14,6 +15,7 @@ import {
     UPDATED_CATEGORY
 } from '../actions/categories';
 import {removeByEquality, removeById, replaceByEquality, replaceById} from './helpers';
+import {image} from './image';
 
 export function categories(state = {
     fetching: false,
@@ -45,7 +47,7 @@ export function categories(state = {
                 return {
                     ...state,
                     items: replaceById(state.items, action.item, {...oldItem, editing: false})
-                }
+                };
             }
             return {
                 ...state,
@@ -57,7 +59,7 @@ export function categories(state = {
                 items: [...state.items, {
                     title: '',
                     description: '',
-                    img: 'http://cdn-img.health.com/sites/default/files/styles/large_16_9/public/styles/main/public/gettyimages-515202999.jpg?itok=MD4bUlS5',
+                    img: '',
                     editing: true
                 }]
             };
@@ -122,6 +124,16 @@ export function categories(state = {
             return {
                 ...state,
                 items: replaceByEquality(state.items, action.item, {[action.field]: action.value})
+            };
+        case MANIPULATE_CATEGORY_IMAGE:
+            return {
+                ...state,
+                items: state.items.map(item => {
+                    if (action.saveId && item.saveId === action.saveId || item === action.item) {
+                        return image(item, action);
+                    }
+                    return item;
+                })
             };
         default:
             return state;

@@ -3,7 +3,9 @@ export function replaceById(items, toReplace, newParams) {
 }
 
 export function replaceByEquality(items, toReplace, newParams) {
-    return items.map(item => item === toReplace ? {...item, ...newParams} : item);
+    return items.map(item => {
+        return item === toReplace ? {...item, ...newParams} : item;
+    });
 }
 
 export function removeById(items, toRemove) {

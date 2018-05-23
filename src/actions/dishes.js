@@ -14,6 +14,7 @@ export const DELETING_DISH = 'DELETING_DISH';
 export const DELETED_DISH = 'DELETED_DISH';
 export const DELETE_DISH_FAILED = 'DELETE_DISH_FAILED';
 export const SET_DISH_VALUE = 'SET_DISH_VALUE';
+export const MANIPULATE_DISH_IMAGE = 'MANIPULATE_DISH_IMAGE';
 
 export function fetchDishes(categoryId) {
     return (dispatch, getState) => {
@@ -68,7 +69,6 @@ export function saveDish(item) {
                     return dispatch({type: UPDATED_DISH, item});
                 })
                 .catch(errors => {
-                    console.log(errors);
                     return dispatch({type: SAVE_DISH_FAILED, errors, saveId});
                 });
         } else {

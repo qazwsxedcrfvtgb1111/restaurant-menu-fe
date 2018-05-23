@@ -1,12 +1,22 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {addDish, cancelEditDish, deleteDish, editDish, fetchDishes, saveDish, setDishValue} from '../../actions/dishes';
+import {
+    addDish,
+    cancelEditDish,
+    deleteDish,
+    editDish,
+    fetchDishes,
+    MANIPULATE_DISH_IMAGE,
+    saveDish,
+    setDishValue
+} from '../../actions/dishes';
 import Dish from '../../components/Dish/Dish';
 import Category from '../../components/Category/Category';
 import './Dishes.scss';
 import BackButton from '../../components/BackButton/BackButton';
 import ControlIcons from '../../components/ControlIcons/ControlIcons';
 import AddElement from '../../components/AddElement/AddElement';
+import {removeImage, setImage} from '../../actions/images';
 
 class Dishes extends Component {
     componentDidMount() {
@@ -25,6 +35,8 @@ class Dishes extends Component {
                         <div className='control-container' key={index}>
                             <Dish {...dish}
                                   onEdit={(prop, value) => this.props.dispatch(setDishValue(prop, value, dish))}
+                                  removeImg={() => this.props.dispatch(removeImage(MANIPULATE_DISH_IMAGE, dish))}
+                                  setImg={file => this.props.dispatch(setImage(file, MANIPULATE_DISH_IMAGE, dish))}
                             />
                             {this.props.isAuthorized &&
                             <ControlIcons editing={dish.editing} disabled={dish.fetching}
