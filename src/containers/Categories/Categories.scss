@@ -6,6 +6,7 @@
     align-items: center;
 
     .control-container {
+        overflow: hidden;
         display: flex;
         justify-content: space-between;
         width: 90%;

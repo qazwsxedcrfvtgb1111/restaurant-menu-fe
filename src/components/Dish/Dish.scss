@@ -3,7 +3,7 @@
 .Dish {
     position: relative;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     height: 150px;
     margin-bottom: 20px;
     background-color: $dish-bg-color;
@@ -23,13 +23,6 @@
         }
     }
 
-    .price {
-        margin: 10px 20px 0 auto;
-        font-size: 25px;
-        display: flex;
-        align-items: center;
-    }
-
     .text-container, .price {
         .input::placeholder {
             color: #353535;
@@ -41,6 +34,17 @@
                 color: #fff;
                 margin: 0;
             }
+        }
+    }
+
+    .price {
+        margin: 10px 20px 0 20px;
+        font-size: 25px;
+        display: flex;
+        align-items: center;
+
+        .input-container {
+            margin-right: 10px;
         }
     }
 

@@ -43,7 +43,7 @@ export function dishes(state = {
             };
         case CANCEL_EDIT_DISH:
             if (action.item.id) {
-                const oldItem = state.oldItems.find(item => item.id === action.item.id);
+                const oldItem = state.oldItems[state.categoryId].find(item => item.id === action.item.id);
                 return {
                     ...state,
                     items: {
