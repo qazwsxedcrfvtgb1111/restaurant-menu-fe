@@ -34,6 +34,7 @@ class Dishes extends Component {
                     this.props.items.map((dish, index) =>
                         <div className='control-container' key={index}>
                             <Dish {...dish}
+                                  errors={dish.errors}
                                   onEdit={(prop, value) => this.props.dispatch(setDishValue(prop, value, dish))}
                                   removeImg={() => this.props.dispatch(removeImage(MANIPULATE_DISH_IMAGE, dish))}
                                   setImg={file => this.props.dispatch(setImage(file, MANIPULATE_DISH_IMAGE, dish))}

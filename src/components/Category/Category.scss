@@ -18,6 +18,12 @@
 
         .text-container {
             margin-right: 10px;
+
+            .input {
+                box-sizing: border-box;
+                border: $bg-color 2px solid;
+                width: 100%;
+            }
         }
 
         .title {
@@ -63,11 +69,5 @@
             }
         }
 
-    }
-
-    .input {
-        box-sizing: border-box;
-        border: $bg-color 2px solid !important;
-        width: 100%;
     }
 }

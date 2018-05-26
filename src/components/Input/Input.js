@@ -16,7 +16,7 @@ export default class Input extends Component {
                     type={this.props.type}
                     value={this.props.value}
                     onChange={event => this.onChange(event)}
-                    className='input'
+                    className={`input ${this.props.className}`}
                     placeholder={this.props.label}
                 />
             </div>

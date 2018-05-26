@@ -9,8 +9,9 @@ export function handleResponse(res, dispatch) {
     if (res.ok) {
         return res.json();
     }
-    console.log('err', res);
-    throw new Error(res.json().errors || 'Request failed');
+    return res.json().then(res => {
+        throw res.errors || 'Request failed';
+    });
 }
 
 export function getHeaders(state, custom = {}, setContentType = true) {

@@ -7,7 +7,7 @@ import ApiImage from '../ApiImage/ApiImage';
 export default class ImageUpload extends Component {
     render() {
         return (
-            <div className='ImgUpload'>
+            <div className={`ImgUpload ${this.props.className}`}>
                 {this.props.img ?
                     <>
                     <ApiImage src={this.props.img}/>
