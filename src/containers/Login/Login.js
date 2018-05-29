@@ -29,10 +29,10 @@ class Login extends Component {
                     type='password'
                     onChange={value => this.props.dispatch(setPassword(value))}
                 />
+                {this.props.error && (<ErrorMessage>Invalid credentials</ErrorMessage>)}
                 <div className='btn-container'>
                     <Button onClick={() => this.props.dispatch(fetchToken())}>Log in</Button>
                 </div>
-                {this.props.error && (<ErrorMessage>Invalid credentials</ErrorMessage>)}
             </div>
         );
     }

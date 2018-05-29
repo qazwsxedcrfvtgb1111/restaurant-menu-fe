@@ -1,15 +1,23 @@
 @import "variables.scss";
 
 .ImgUpload {
-  height: 100%;
+    height: 100%;
     box-sizing: border-box;
-  svg {
-    cursor: pointer;
-      margin-left: 10px;
-  }
-  display: flex;
-  @media (max-width: 768px) {
-    flex-direction: column;
-      margin: 10px 0 0;
-  }
+    display: flex;
+
+    .file-input {
+        width: 100%;
+        box-sizing: border-box;
+        margin: 5px;
+    }
+
+    svg {
+        cursor: pointer;
+        margin-left: 10px;
+    }
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        margin: 10px 0 0;
+    }
 }

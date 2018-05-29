@@ -1,5 +1,8 @@
 @import 'variables.scss';
 
 .ErrorMessage {
+    margin-bottom: 10px;
+    margin-left: 5px;
     color: red;
+    white-space: nowrap;
 }

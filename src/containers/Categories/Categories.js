@@ -26,7 +26,7 @@ class Categories extends Component {
                 {this.props.categories.items.map((category, index) => (
                     <div className='control-container' key={index}>
                         <Category {...category}
-                                  errors={category.errors}
+                                  errors={category.errors || {}}
                                   onEdit={(prop, value) => this.props.dispatch(setCategoryValue(prop, value, category))}
                                   removeImg={() => this.props.dispatch(removeImage(MANIPULATE_CATEGORY_IMAGE, category))}
                                   setImg={file => this.props.dispatch(setImage(file, MANIPULATE_CATEGORY_IMAGE, category))}

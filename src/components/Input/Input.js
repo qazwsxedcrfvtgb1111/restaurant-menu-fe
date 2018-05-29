@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './Input.scss';
+import ErrorMessage from '../ErrorMessage/ErrorMessage';
 
 export default class Input extends Component {
     onChange(event) {
@@ -16,9 +17,10 @@ export default class Input extends Component {
                     type={this.props.type}
                     value={this.props.value}
                     onChange={event => this.onChange(event)}
-                    className={`input ${this.props.className}`}
+                    className={`input ${this.props.error && 'error' || ''}`}
                     placeholder={this.props.label}
                 />
+                {this.props.error && <ErrorMessage>{this.props.error.msg}</ErrorMessage>}
             </div>
         );
     }
