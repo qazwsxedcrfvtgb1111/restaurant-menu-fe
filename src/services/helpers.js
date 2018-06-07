@@ -14,9 +14,9 @@ export function handleResponse(res, dispatch) {
     });
 }
 
-export function getHeaders(state, custom = {}, setContentType = true) {
+export function getHeaders(token, custom = {}, setContentType = true) {
     return {
-        Authorization: `Bearer ${state.auth.token}`,
+        Authorization: `Bearer ${token}`,
         ...(setContentType ? {'Content-Type': 'application/json'} : {}),
         ...custom
     };

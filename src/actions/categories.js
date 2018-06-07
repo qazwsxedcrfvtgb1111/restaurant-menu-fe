@@ -1,4 +1,5 @@
 import {CategoryService} from '../services/CategoryService';
+import {getTokenFromState} from './heplpers';
 
 export const FETCH_CATEGORIES = 'FETCH_CATEGORIES';
 export const RECEIVE_CATEGORIES = 'RECEIVE_CATEGORIES';
@@ -44,7 +45,7 @@ export function deleteCategory(item) {
     return (dispatch, getState) => {
         dispatch({type: DELETING_CATEGORY, item});
         if (item.id) {
-            return new CategoryService(dispatch, getState()).delete(item.id)
+            return new CategoryService(dispatch, getTokenFromState(getState())).delete(item.id)
                 .then(() => dispatch({type: DELETED_CATEGORY, item}))
                 .catch(() => dispatch({type: DELETE_CATEGORY_FAILED, item}));
         }
@@ -56,7 +57,7 @@ export function saveCategory(item) {
         const saveId = Date.now();
         dispatch({type: SAVING_CATEGORY, item, saveId});
         if (item.id) {
-            return new CategoryService(dispatch, getState()).update(item)
+            return new CategoryService(dispatch, getTokenFromState(getState())).update(item)
                 .then(() => {
                     return dispatch({type: UPDATED_CATEGORY, item});
                 })
@@ -65,7 +66,7 @@ export function saveCategory(item) {
                     return dispatch({type: SAVE_CATEGORY_FAILED, errors, saveId});
                 });
         } else {
-            return new CategoryService(dispatch, getState()).create(item)
+            return new CategoryService(dispatch, getTokenFromState(getState())).create(item)
                 .then(({id}) => dispatch({type: CREATED_CATEGORY, id, saveId}))
                 .catch(errors => dispatch({type: SAVE_CATEGORY_FAILED, errors, saveId}));
         }

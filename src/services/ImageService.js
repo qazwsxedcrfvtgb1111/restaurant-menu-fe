@@ -1,9 +1,9 @@
 import {formUrl, getHeaders, handleResponse} from './helpers';
 
 export class ImageService {
-    constructor(dispatch, state) {
+    constructor(dispatch, token) {
         this.dispatch = dispatch;
-        this.state = state;
+        this.token = token;
     }
 
     create(item) {
@@ -12,7 +12,7 @@ export class ImageService {
         return fetch(formUrl('images'), {
             method: 'POST',
             body: form,
-            headers: getHeaders(this.state, {}, false)
+            headers: getHeaders(this.token, {}, false)
         })
             .then(res => handleResponse(res, this.dispatch));
     }

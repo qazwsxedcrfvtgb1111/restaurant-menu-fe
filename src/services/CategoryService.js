@@ -3,9 +3,9 @@ import {cleanObj, formUrl, getHeaders, handleResponse} from './helpers';
 const keys = ['img', 'title', 'description'];
 
 export class CategoryService {
-    constructor(dispatch, state) {
+    constructor(dispatch, token) {
         this.dispatch = dispatch;
-        this.state = state;
+        this.token = token;
     }
 
     get() {
@@ -16,7 +16,7 @@ export class CategoryService {
     delete(id) {
         return fetch(formUrl(`categories/${id}`), {
             method: 'delete',
-            headers: getHeaders(this.state)
+            headers: getHeaders(this.token)
         })
             .then(res => handleResponse(res, this.dispatch));
     }
@@ -25,7 +25,7 @@ export class CategoryService {
         return fetch(formUrl('categories'), {
             method: 'POST',
             body: JSON.stringify(cleanObj(keys, item)),
-            headers: getHeaders(this.state)
+            headers: getHeaders(this.token)
         })
             .then(res => handleResponse(res, this.dispatch));
     }
@@ -34,7 +34,7 @@ export class CategoryService {
         return fetch(formUrl(`categories/${item.id}`), {
             method: 'PUT',
             body: JSON.stringify(cleanObj(keys, item)),
-            headers: getHeaders(this.state)
+            headers: getHeaders(this.token)
         })
             .then(res => handleResponse(res, this.dispatch));
     }

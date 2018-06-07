@@ -2,15 +2,16 @@ import {cleanObj, formUrl, getHeaders, handleResponse} from './helpers';
 
 function getKeys(item) {
     const keys = ['name'];
-    if(item.password) {
+    if (item.password) {
         return [...keys, 'password'];
     }
     return keys;
 }
+
 export class UserService {
-    constructor(dispatch, state) {
+    constructor(dispatch, token) {
         this.dispatch = dispatch;
-        this.state = state;
+        this.token = token;
     }
 
     get() {
@@ -21,7 +22,7 @@ export class UserService {
     delete(id) {
         return fetch(formUrl(`users/${id}`), {
             method: 'delete',
-            headers: getHeaders(this.state)
+            headers: getHeaders(this.token)
         })
             .then(res => handleResponse(res, this.dispatch));
     }
@@ -31,7 +32,7 @@ export class UserService {
         return fetch(formUrl('users'), {
             method: 'POST',
             body: JSON.stringify(cleanObj(getKeys(item), item)),
-            headers: getHeaders(this.state)
+            headers: getHeaders(this.token)
         })
             .then(res => handleResponse(res, this.dispatch));
     }
@@ -40,7 +41,7 @@ export class UserService {
         return fetch(formUrl(`users/${item.id}`), {
             method: 'PUT',
             body: JSON.stringify(cleanObj(getKeys(item), item)),
-            headers: getHeaders(this.state)
+            headers: getHeaders(this.token)
         })
             .then(res => handleResponse(res, this.dispatch));
     }

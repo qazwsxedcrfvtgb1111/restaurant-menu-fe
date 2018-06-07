@@ -29,8 +29,6 @@ class Dishes extends Component {
                 <BackButton/>
                 <Category {...this.props.category} />
                 {this.props.items.length || this.props.fetching ? (
-
-
                     this.props.items.map((dish, index) =>
                         <div className='control-container' key={index}>
                             <Dish {...dish}

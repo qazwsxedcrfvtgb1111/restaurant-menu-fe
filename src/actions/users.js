@@ -1,4 +1,6 @@
 import {UserService} from '../services/UserService';
+import {getTokenFromState} from './heplpers';
+
 
 export const FETCH_USERS = 'FETCH_USERS';
 export const RECEIVE_USERS = 'RECEIVE_USERS';
@@ -39,7 +41,7 @@ export function deleteUser(item) {
     return (dispatch, getState) => {
         dispatch({type: DELETING_USER, item});
         if (item.id) {
-            return new UserService(dispatch, getState()).delete(item.id)
+            return new UserService(dispatch, getTokenFromState(getState())).delete(item.id)
                 .then(() => dispatch({type: DELETED_USER, item}))
                 .catch(() => dispatch({type: DELETE_USER_FAILED, item}));
         }
@@ -51,7 +53,7 @@ export function saveUser(item) {
         const saveId = Date.now();
         dispatch({type: SAVING_USER, item, saveId});
         if (item.id) {
-            return new UserService(dispatch, getState()).update(item)
+            return new UserService(dispatch, getTokenFromState(getState())).update(item)
                 .then(() => {
                     return dispatch({type: UPDATED_USER, item});
                 })
@@ -59,7 +61,7 @@ export function saveUser(item) {
                     return dispatch({type: SAVE_USER_FAILED, errors, saveId});
                 });
         } else {
-            return new UserService(dispatch, getState()).create(item)
+            return new UserService(dispatch, getTokenFromState(getState())).create(item)
                 .then(({id}) => dispatch({type: CREATED_USER, id, saveId}))
                 .catch(errors => dispatch({type: SAVE_USER_FAILED, errors, saveId}));
         }

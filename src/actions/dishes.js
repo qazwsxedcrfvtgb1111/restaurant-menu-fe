@@ -1,5 +1,6 @@
 import {fetchCategories} from './categories';
 import {DishService} from '../services/DishService';
+import {getTokenFromState} from './heplpers';
 
 export const FETCH_DISHES = 'FETCH_DISHES';
 export const RECEIVE_DISHES = 'RECEIVE_DISHES';
@@ -52,7 +53,7 @@ export function deleteDish(item) {
     return (dispatch, getState) => {
         dispatch({type: DELETING_DISH, item});
         if (item.id) {
-            return new DishService(dispatch, getState()).delete(item.id)
+            return new DishService(dispatch, getTokenFromState(getState())).delete(item.id)
                 .then(() => dispatch({type: DELETED_DISH, item}))
                 .catch(() => dispatch({type: DELETE_DISH_FAILED, item}));
         }
@@ -64,7 +65,7 @@ export function saveDish(item) {
         const saveId = Date.now();
         dispatch({type: SAVING_DISH, item, saveId});
         if (item.id) {
-            return new DishService(dispatch, getState()).update(item)
+            return new DishService(dispatch, getTokenFromState(getState())).update(item)
                 .then(() => {
                     return dispatch({type: UPDATED_DISH, item});
                 })
@@ -72,7 +73,7 @@ export function saveDish(item) {
                     return dispatch({type: SAVE_DISH_FAILED, errors, saveId});
                 });
         } else {
-            return new DishService(dispatch, getState()).create(item)
+            return new DishService(dispatch, getTokenFromState(getState())).create(item)
                 .then(({id}) => dispatch({type: CREATED_DISH, id, saveId}))
                 .catch(errors => dispatch({type: SAVE_DISH_FAILED, errors, saveId}));
         }
