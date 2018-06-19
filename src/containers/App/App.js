@@ -11,6 +11,7 @@ import {push} from 'react-router-redux';
 import Users from '../Users/Users';
 import About from '../About/About';
 import Contacts from '../Contacts/Contacts';
+import Orders from '../Orders/Orders';
 
 class App extends Component {
     render() {
@@ -26,6 +27,7 @@ class App extends Component {
                         <Route exact path='/users' component={Users}/>
                         <Route exact path='/about' component={About}/>
                         <Route exact path='/contacts' component={Contacts}/>
+                        <Route exact path='/orders' component={Orders}/>
                     </Switch>
                 </main>
             </div>

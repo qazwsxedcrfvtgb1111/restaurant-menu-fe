@@ -1,26 +1,22 @@
 import React, {Component} from 'react';
-import './Input.scss';
-import ErrorMessage from '../ErrorMessage/ErrorMessage';
+import './Order.scss';
 
-export default class Input extends Component {
-    onChange(event) {
-        this.props.onChange(event.target.value);
-    }
-
+export default class Order extends Component {
     render() {
         return (
-            <div className='input-container'>
-                {this.props.label && !this.props.hideLabel && (
-                    <label className='input-label'>{this.props.label}</label>
-                )}
-                <input
-                    type={this.props.type}
-                    value={this.props.value}
-                    onChange={event => this.onChange(event)}
-                    className={`input ${this.props.error && 'error' || ''}`}
-                    placeholder={this.props.label}
-                />
-                {this.props.error && <ErrorMessage>{this.props.error.msg}</ErrorMessage>}
+            <div className='Order shadowed'>
+                <div className='text-container'>
+                    <div className='title'>
+                        <div>Beef steak – 3</div>
+                        <div>Chicken steak – 3</div>
+                        <div>Coca-cola – 3</div>
+                        <div>Water – 3</div>
+                    </div>
+                    <div className='description'>
+                        {this.props.description}
+                    </div>
+
+                </div>
             </div>
         );
     }

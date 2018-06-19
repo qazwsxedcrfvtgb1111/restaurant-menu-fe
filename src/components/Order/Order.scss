@@ -1,0 +1,53 @@
+@import "variables.scss";
+
+.Order {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    height: 150px;
+    margin-bottom: 20px;
+    background-color: $dish-bg-color;
+    width: 100%;
+    color: #fff;
+    text-decoration: none !important;
+
+
+    .text-container {
+        margin-right: auto;
+
+        .title, .title .input {
+            font-weight: 700;
+            font-size: 30px;
+            margin: 10px 0 20px;
+        }
+
+        .description .input {
+            font-size: 15px;
+        }
+    }
+
+    .text-container, .price {
+        .input::placeholder {
+            color: #353535;
+        }
+
+        .input-container {
+            margin: 0;
+            .input {
+                color: #fff;
+                margin: 0;
+            }
+        }
+    }
+
+    .price {
+        margin: 10px 20px 0 20px;
+        font-size: 25px;
+        display: flex;
+        align-items: center;
+
+        .input-container {
+            margin-right: 10px;
+        }
+    }
+}
