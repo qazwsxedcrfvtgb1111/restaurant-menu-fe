@@ -13,7 +13,6 @@ import {
     SET_DISH_VALUE,
     UPDATED_DISH
 } from '../actions/dishes';
-import {replaceByEquality} from './helpers';
 import {image} from './image';
 
 export function dishes(state = {

@@ -11,6 +11,16 @@
     color: #fff;
     text-decoration: none !important;
 
+    .order-container {
+        display: flex;
+        align-items: center;
+
+        .input-container {
+            margin: 0 10px;
+            width: 50px;
+        }
+    }
+
     .text-container {
         margin-right: auto;
 

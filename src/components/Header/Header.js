@@ -11,7 +11,18 @@ export default class Header extends Component {
                 <Button onClick={() => {
                     this.props.go('/users');
                 }}>Users</Button>
+                <Button onClick={() => {
+                    this.props.go('/orders');
+                }}>Orders</Button>
+                <Button onClick={() => {
+                    this.props.go('/data');
+                }}>Data</Button>
                 <Button onClick={this.props.logout}>Log out</Button>
+                </> ||
+                <>
+                <Button onClick={this.props.placeOrder}>Place order</Button>
+                <Button onClick={this.props.go('/about')}>About</Button>
+                <Button onClick={this.props.go('/contacts')}>Contacts</Button>
                 </>}
             </nav>
         );

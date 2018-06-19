@@ -36,6 +36,7 @@ class Dishes extends Component {
                                   onEdit={(prop, value) => this.props.dispatch(setDishValue(prop, value, dish))}
                                   removeImg={() => this.props.dispatch(removeImage(MANIPULATE_DISH_IMAGE, dish))}
                                   setImg={file => this.props.dispatch(setImage(file, MANIPULATE_DISH_IMAGE, dish))}
+                                  authorized={this.props.isAuthorized}
                             />
                             {this.props.isAuthorized &&
                             <ControlIcons editing={dish.editing} disabled={dish.fetching}

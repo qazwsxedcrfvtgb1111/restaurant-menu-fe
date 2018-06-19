@@ -14,9 +14,9 @@ class App extends Component {
     render() {
         return (
             <div className='App'>
-                <Header loggedIn={this.props.loggedIn} go={to => this.props.dispatch(push(to))} logout={() => this.props.dispatch(forgetToken())}/>
+                <Header loggedIn={this.props.loggedIn} go={to => this.props.dispatch(push(to))}
+                        logout={() => this.props.dispatch(forgetToken())}/>
                 <main>
-
                     <Switch>
                         <Route exact path='/' component={Categories}/>
                         <Route exact path='/category/:id' component={Dishes}/>

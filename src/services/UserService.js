@@ -28,7 +28,6 @@ export class UserService {
     }
 
     create(item) {
-        console.log(item);
         return fetch(formUrl('users'), {
             method: 'POST',
             body: JSON.stringify(cleanObj(getKeys(item), item)),
