@@ -9,6 +9,8 @@ import {connect} from 'react-redux';
 import {forgetToken} from '../../actions/auth';
 import {push} from 'react-router-redux';
 import Users from '../Users/Users';
+import About from '../About/About';
+import Contacts from '../Contacts/Contacts';
 
 class App extends Component {
     render() {
@@ -22,6 +24,8 @@ class App extends Component {
                         <Route exact path='/category/:id' component={Dishes}/>
                         <Route exact path='/login' component={Login}/>
                         <Route exact path='/users' component={Users}/>
+                        <Route exact path='/about' component={About}/>
+                        <Route exact path='/contacts' component={Contacts}/>
                     </Switch>
                 </main>
             </div>
